@@ -1,0 +1,45 @@
+<apex:page standardController="Contact">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Quick Start: Visualforce</title>
+        <!-- Import the Design System style sheet -->
+        <apex:slds />
+        <apex:includeScript value="{! $Resource.Jquery_last_version}"/>
+        
+    </head>
+    <body>
+        <apex:form >
+            <apex:pageBlock title="New Contact">
+                <!-- Buttons -->
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!save}" value="Save"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="First section">
+                    <apex:inputField value="{!Contact.LastName}"/>
+                    <apex:inputField value="{!Contact.Email}"/>
+                    <apex:inputField value="{!Contact.Phone}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Second section:">
+                    We are three nested components!
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Test section" columns="1">
+                    {! $User.FirstName} {! $User.LastName}
+                    ({! $User.Username})
+                    {! TODAY()}
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="All details">
+                    <apex:detail />
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:form>
+    </body>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function() {
+            jQuery("#message").html("Hello from jQuery!");
+        });
+    </script>
+    <!-- Where the jQuery message will appear -->
+    <h1 id="message">Which</h1>
+</apex:page>
